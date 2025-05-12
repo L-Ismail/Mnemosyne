@@ -106,9 +106,14 @@ class dlg_var(wx.Dialog):
 
         self.bt_add.Bind(wx.EVT_BUTTON, self.add_variable)
 
-    def add_variable(self, event):
+    def add_variable(self, event, args, argument_a, argument_b):
 
-        wx.MessageBox("Add variable functionality not implemented yet!", "Info", wx.OK | wx.ICON_INFORMATION)
+        argument_a=input("entrer terme a: ")
+        argument_b=("entrer terme b: ")
+        if argument_a != argument_b:
+            print((argument_a, argument_b))
+        else:
+            wx.MessageBox("Les deux termes sont identiques", "Info", wx.OK | wx.ICON_INFORMATION)
 
 
 class MyApp(wx.App):

@@ -6,6 +6,7 @@
 import wx
 from query_variable import dlg_var
 import sqlite3 as sl
+import query_variable as var
 
 connexion = sl.connect("bd_test.db")
 curseur = connexion.cursor()
@@ -130,8 +131,9 @@ class MyFrame(wx.Frame):
 
 
     def evt_addvariable(self, event):  # wxGlade: MyFrame.<event_handler>
-        print("Event handler 'evt_addvariable' not implemented!")
-        event.Skip()
+        var.add_variable(self, event)
+        # print("Event handler 'evt_addvariable' not implemented!")
+        # event.Skip()
 
     def ExecSQL(self, event, var):  # wxGlade: MyFrame.<event_handler>
         curseur.execute("SELECT * FROM eleve WHERE identifiant = ?", (var))
